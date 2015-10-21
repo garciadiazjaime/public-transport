@@ -1,5 +1,5 @@
 import React, { Component, PropTypes} from 'react';
-import Place from './place';
+import Place from './Place';
 
 export default class PlacesList extends Component {
   

@@ -7,19 +7,20 @@ export default class Place extends Component {
     return (
       <div>
         <div>
-          {this.props.data.type}
+          {this.props.data.name}
         </div>
         <div>
-          {this.props.data.start}
+          {this.props.data.category}
         </div>
         <div>
-          {this.props.data.end}
-        </div>
-        <div>
-          <a href="">google</a>
+          <button onClick={e => this.handleClick(e)}>detalle</button>
         </div>
       </div>
     );
+  }
+
+  handleClick(e) {
+    console.log('here', this.props.data);
   }
 }
 
