@@ -51,10 +51,14 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      templateContent: '<html><head></head><body><main></main></body></html>',
+      templateContent: '<html><head></head><body><div id="main"></div></body></html>',
       inject: true
     }),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
   ],
 
   debug: true,

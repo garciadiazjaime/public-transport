@@ -1,6 +1,8 @@
 import React from 'react';
+import jquery from 'jquery';
 
 import PlacesList from './PlacesList';
+
 
 export default function App() {
   const routesDummy = [
@@ -25,6 +27,9 @@ export default function App() {
         "category": 1
     }
   ];
+  $.get('http://api-mpublictransport.rhcloud.com/api/transport/lines/', function(data) {
+    console.log('data', data);
+  });
   return (
     <div>
       <PlacesList places={routesDummy} />

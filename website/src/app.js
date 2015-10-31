@@ -31,5 +31,5 @@ render(
       <App></App>
     </Provider>
   </div>,
-  document.querySelector('main')
+  document.getElementById('main')
 );
