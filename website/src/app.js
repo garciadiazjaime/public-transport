@@ -11,9 +11,8 @@ import App from './components/App.js';
 import appReducer from './state';
 
 const initialState = {
-  counters: {
-    add: 100,
-    multiply: 500
+  transport: {
+    routes: []
   }
 };
 

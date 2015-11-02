@@ -1,38 +1,21 @@
 import React from 'react';
-import jquery from 'jquery';
+import { connect } from 'react-redux';
+
+import { getRoutes } from '../state/transport.js'
 
 import PlacesList from './PlacesList';
 
+const connector = connect((state) => state, {
+  getRoutes
+});
 
-export default function App() {
-  const routesDummy = [
-    {
-        "id": 1,
-        "name": "Centro - Laureles",
-        "category": 1
-    },
-    {
-        "id": 2,
-        "name": "Centro - Xico",
-        "category": 1
-    },
-    {
-        "id": 3,
-        "name": "Centro - Flores",
-        "category": 1
-    },
-    {
-        "id": 4,
-        "name": "Centro - Cumbres",
-        "category": 1
-    }
-  ];
-  $.get('http://api-mpublictransport.rhcloud.com/api/transport/lines/', function(data) {
-    console.log('data', data);
-  });
+export default connector(App);
+
+function App({ transport, getRoutes}) {
+
   return (
     <div>
-      <PlacesList places={routesDummy} />
+      <PlacesList routes={transport.routes} getRoutes={getRoutes}/>
       <div>
         Details
       </div>

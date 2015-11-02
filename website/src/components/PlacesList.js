@@ -2,16 +2,21 @@ import React, { Component, PropTypes} from 'react';
 import Place from './Place';
 
 export default class PlacesList extends Component {
+
+	componentDidMount() {
+		this.props.getRoutes();
+	}
   
   render(){
-    return (
-      <div>
-        { this.props.places.map( (route, i) => <Place data={route} key={i} /> ) }
-      </div>
-    );
+    return this.props.routes.length ? 
+	    (
+	      <div>
+	        { this.props.routes.map( (route, i) => <Place data={route} key={i} /> ) }
+	      </div>
+	    ) : null;
   }
 }
 
 PlacesList.propTypes = {
-  places: PropTypes.array.isRequired,
+  routes: PropTypes.array.isRequired,
 };
