@@ -1,21 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-import { getRoutes } from '../state/transport.js'
+import RoutesContainer from '../container/RoutesContainer.js';
 
-import PlacesList from './PlacesList';
-
-const connector = connect((state) => state, {
-  getRoutes
-});
-
-export default connector(App);
-
-function App({ transport, getRoutes}) {
+export default function App() {
 
   return (
     <div>
-      <PlacesList routes={transport.routes} getRoutes={getRoutes}/>
+      <RoutesContainer />
       <div>
         Details
       </div>

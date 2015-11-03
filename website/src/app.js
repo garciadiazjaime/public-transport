@@ -16,6 +16,8 @@ const initialState = {
   }
 };
 
+const targetEl = document.getElementById('main');
+
 const store = compose(
   applyMiddleware(thunk),
   devTools()
@@ -30,5 +32,5 @@ render(
       <App></App>
     </Provider>
   </div>,
-  document.getElementById('main')
+  targetEl
 );
