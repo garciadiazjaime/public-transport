@@ -6,14 +6,14 @@ export default class Route extends Component {
 
     return (
       <div>
-        <div>
+        <div className="text-info">
           {this.props.data.name}
         </div>
         <div>
           {this.getCategory(this.props.data.category)}
         </div>
         <div>
-          <button onClick={e => this.handleClick(e)}>detalle</button>
+          <button onClick={e => this.handleClick(e)} className="btn btn-primary">detalle</button>
         </div>
       </div>
     );
