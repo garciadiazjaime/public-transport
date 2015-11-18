@@ -12,7 +12,8 @@ import appReducer from './state';
 
 const initialState = {
   transport: {
-    routes: []
+    routes: [],
+    route: null
   }
 };
 

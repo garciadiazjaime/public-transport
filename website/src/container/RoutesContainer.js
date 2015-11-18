@@ -1,21 +1,22 @@
 import React, { Component, PropTypes} from 'react';
 import { connect } from 'react-redux';
 
-import { getRoutes } from '../state/transport.js'
+import { getRoutes, setRoute } from '../state/transport';
 
-import Routes from '../components/Routes.js'
+import Routes from '../components/Routes';
 
 const connector = connect((state) => state, {
-  getRoutes
+  getRoutes,
+  setRoute
 });
 
-export default connector(RouteCounter);
+export default connector(RoutesContainer);
 
-function RouteCounter({ transport, loading, getRoutes}) {
-	
+function RoutesContainer({ transport, loading, getRoutes, setRoute}) {
+
   return (
     <div>
-      <Routes routes={transport.routes} getRoutes={getRoutes} loading={loading} />
+      <Routes routes={transport.routes} loading={loading} getRoutes={getRoutes} setRoute={setRoute} />
     </div>
   )
 }

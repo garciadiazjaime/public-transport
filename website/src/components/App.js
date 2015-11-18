@@ -1,16 +1,14 @@
 import React from 'react';
 
-import RoutesContainer from '../container/RoutesContainer.js';
+import RoutesContainer from '../container/RoutesContainer';
+import RouteInfo from '../container/RouteInfo'
 
 export default function App() {
 
   return (
     <div>
       <RoutesContainer />
-      <div>
-        Details
-      </div>
+      <RouteInfo />
     </div>
   );
 }
-

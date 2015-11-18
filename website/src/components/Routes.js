@@ -1,6 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 
-import Place from './Place';
+import Station from './Station';
 
 export default class Routes extends Component {
 
@@ -21,7 +21,7 @@ export default class Routes extends Component {
   }
 
   renderRoutes(routes) {
-    return routes.length ? routes.map((route, i) => <Place data={route} key={i} />) : null;
+    return routes.length ? routes.map((route, i) => <Station data={route} key={i} setRoute={this.props.setRoute} />) : null;
   }
-  
+
 }
