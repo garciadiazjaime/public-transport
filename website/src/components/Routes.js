@@ -1,6 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 
-import Station from './Station';
+import Route from './Route';
 
 export default class Routes extends Component {
 
@@ -9,7 +9,7 @@ export default class Routes extends Component {
   }
 
   render() {
-    const loadingEl = this.props.loading ? <span>loading!</span> : null;
+    const loadingEl = this.props.loading === 'request_routes' ? <span>loading!</span> : null;
     const routesEl = this.renderRoutes(this.props.routes);
 
     return (
@@ -21,7 +21,7 @@ export default class Routes extends Component {
   }
 
   renderRoutes(routes) {
-    return routes.length ? routes.map((route, i) => <Station data={route} key={i} setRoute={this.props.setRoute} />) : null;
+    return routes.length ? routes.map((route, i) => <Route data={route} key={i} setRoute={this.props.setRoute} />) : null;
   }
 
 }

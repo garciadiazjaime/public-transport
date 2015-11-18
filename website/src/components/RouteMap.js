@@ -2,13 +2,26 @@ import React, { Component, PropTypes} from 'react';
 
 export default class RouteMap extends Component {
 
-  render(){
-
+  render() {
+    const mapElement = this.props.loading === 'request_stations' ?
+      <span>loading!</span> : this.renderStations(this.props.stations);
     return (
       <div>
-        Mapa
+        {mapElement}
       </div>
     );
+  }
+
+  renderStations(stations) {
+    console.log(stations);
+    var listEL = stations.length ?
+      stations.map((station, i) => <li key={i}>{station.name}</li>)
+      : null;
+    return listEL ? (
+      <ul>
+        {listEL}
+      </ul>
+    ) : null;
   }
 }
 

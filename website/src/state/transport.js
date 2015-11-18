@@ -10,15 +10,18 @@ export function getRoutes() {
 }
 
 export function setRoute(route) {
-  return {
-    type: 'SET_ROUTE',
-    payload: route
-  };
+  return (dispatch) => {
+    dispatch({ type: 'GET_STATIONS_REQUEST'});
+    $.get('http://127.0.0.1:8000/api/transport/stations/?line=' + route.id, function(data) {
+      dispatch({ type: 'GET_STATIONS_RESPONSE', payload: {route: route, stations: data} });
+    });
+  }
 }
 
 const inititalState = {
   routes: [],
-  route: null
+  route: null,
+  stations: []
 };
 
 export default function transport(state = inititalState, { type, payload}) {
@@ -28,11 +31,12 @@ export default function transport(state = inititalState, { type, payload}) {
         ...state,
         routes: payload
       };
-    case 'SET_ROUTE':
+    case 'GET_STATIONS_RESPONSE':
       return {
         ...state,
-        route: payload
-      }
+        route: payload.route,
+        stations: payload.stations
+      };
     default:
       return state;
   }

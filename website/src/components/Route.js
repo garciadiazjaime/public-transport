@@ -1,6 +1,6 @@
 import React, { Component, PropTypes} from 'react';
 
-export default class Station extends Component {
+export default class Route extends Component {
 
   render(){
 
@@ -37,6 +37,6 @@ export default class Station extends Component {
   }
 }
 
-Station.propTypes = {
+Route.propTypes = {
   data: PropTypes.object.isRequired
 };
